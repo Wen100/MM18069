@@ -1,0 +1,19 @@
+;Inicializaciòn de datos (ya que en la guia no especifica que el usuario deba ingresarlo)
+section .data
+    num1 dw 5      ;1er num
+    num2 dw 4      ;2do num
+    num3 dw 3      ;3er num
+
+section .text
+    global _start
+
+_start:
+    ;Carga de datos en 16 bits
+    mov ax, [num1]
+    sub ax, [num2]
+    sub ax, [num3]
+
+    ;Finalizar el programa
+    mov eax, 60    ; syscall: exit
+    xor edi, edi   ; status: 0
+    syscall

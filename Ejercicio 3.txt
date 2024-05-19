@@ -1,0 +1,19 @@
+;Inicializaciòn de variables
+section .data
+    num1 dd 12     ;1er num
+    num2 dd 2      ;2do num
+
+section .text
+    global _start
+
+_start:
+    ;Cargar a 32 bits
+    mov eax, [num1]
+    cdq            
+    mov ecx, [num2]
+    idiv ecx       ;Divisiòn
+
+    ;Finalizar el programa
+    mov eax, 60
+    xor edi, edi
+    syscall
